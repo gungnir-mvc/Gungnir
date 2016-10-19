@@ -1,0 +1,33 @@
+{
+    "name": "gungnir-mvc/bootstrap",
+    "description": "Bootstrap for gungnir MVC",
+    "type": "project",
+    "require": {
+        "gungnir-mvc/core": "dev-master",
+        "gungnir-mvc/http": "dev-master",
+        "gungnir-mvc/framework": "dev-master",
+        "gungnir-mvc/event": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*",
+        "phpspec/prophecy": "~1.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/gungnir-mvc/core.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/gungnir-mvc/http.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/gungnir-mvc/framework.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/gungnir-mvc/event.git"
+        }
+    ]
+}

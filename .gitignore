@@ -1,0 +1,5 @@
+application/
+vendor/
+composer.phar
+*.orig
+.vscode/
