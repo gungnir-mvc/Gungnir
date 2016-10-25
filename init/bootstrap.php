@@ -1,12 +1,14 @@
 <?php
 
+$applicationRoot = dirname(dirname(__FILE__)) . '/application/';
+
 use Gungnir\Framework\Dispatcher;
 use Gungnir\Core\Container;
 
 $container = new Container();
 Container::instance($container);
 
-if (is_dir(APPROOT.'init')) {
+if (is_dir($applicationRoot . 'init')) {
     getApplicationFile('init/init.php');
     getApplicationFile('init/autoloader.php');
     getApplicationFile('init/functions.php');

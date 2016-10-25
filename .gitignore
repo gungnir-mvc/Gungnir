@@ -1,4 +1,3 @@
-application/
 vendor/
 composer.phar
 *.orig

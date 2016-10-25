@@ -3,21 +3,14 @@
 if ( ! function_exists("getApplicationFile")) {
     function getApplicationFile($path)
     {
-        return getFile(APPROOT.ltrim($path, '/'));
-    }
-}
-
-if ( ! function_exists("getSystemFile")) {
-    function getSystemFile($path)
-    {
-        return getFile(SYSROOT.ltrim($path, '/'));
+        return getFile(dirname(dirname(__FILE__)) . '/application/' . ltrim($path, '/'));
     }
 }
 
 if ( ! function_exists("getVendorFile")) {
     function getVendorFile($path)
     {
-        return getFile(VENROOT.ltrim($path, '/'));
+        return getFile(dirname(dirname(__FILE__)) . '/vendor/' . ltrim($path, '/'));
     }
 }
 
