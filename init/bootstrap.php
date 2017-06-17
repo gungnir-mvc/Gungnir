@@ -1,14 +1,11 @@
 <?php
 
-$applicationRoot = dirname(dirname(__FILE__)) . '/application/';
+$root = dirname(dirname(__FILE__)) . '/';
 
-use Gungnir\Framework\Dispatcher;
-use Gungnir\Core\Container;
+$container = new \Gungnir\Core\Container();
+$app = new \Gungnir\Core\Application($root);
 
-$container = new Container();
-Container::instance($container);
-
-if (is_dir($applicationRoot . 'init')) {
+if (is_dir($app->getApplicationPath() . 'init')) {
     getApplicationFile('init/init.php');
     getApplicationFile('init/autoloader.php');
     getApplicationFile('init/functions.php');
@@ -22,8 +19,12 @@ foreach ($autoloader->prefixes() AS $prefix => $path) {
     }
 }
 
-$dispatcher = new Dispatcher($container);
-$response = $dispatcher->run();
+$dispatcher = new \Gungnir\Framework\Dispatcher($app);
+$dispatcher->setContainer($container);
+
+$request = new \Gungnir\HTTP\Request($_GET, $_POST, [], $_COOKIE, $_FILES, $_SERVER);
+
+$response = $dispatcher->dispatch($request);
 
 echo $response;
 

@@ -4,7 +4,7 @@
     "type": "project",
     "require": {
         "gungnir-mvc/core": "dev-master",
-        "gungnir-mvc/http": "dev-master",
+        "gungnir-mvc/http": "1.*",
         "gungnir-mvc/framework": "dev-master",
         "gungnir-mvc/event": "dev-master"
     },

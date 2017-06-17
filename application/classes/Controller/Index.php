@@ -1,10 +1,12 @@
 <?php
 namespace Controller;
 
-use \Gungnir\Framework\{Controller, View};
-use \Gungnir\HTTP\{Request, Response};
+use Gungnir\Framework\AbstractController;
+use Gungnir\Framework\View;
+use Gungnir\HTTP\Request;
+use Gungnir\HTTP\Response;
 
-class Index extends Controller
+class Index extends AbstractController
 {
     /**
      * Default entrypoint action for application
