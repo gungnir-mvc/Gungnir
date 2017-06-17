@@ -1,9 +1,9 @@
 <?php
-
 $root = dirname(dirname(__FILE__)) . '/';
 
-$container = new \Gungnir\Core\Container();
 $app = new \Gungnir\Core\Application($root);
+$container = new \Gungnir\Core\Container();
+$app->setContainer($container);
 
 if (is_dir($app->getApplicationPath() . 'init')) {
     getApplicationFile('init/init.php');
@@ -20,8 +20,6 @@ foreach ($autoloader->prefixes() AS $prefix => $path) {
 }
 
 $dispatcher = new \Gungnir\Framework\Dispatcher($app);
-$dispatcher->setContainer($container);
-
 $request = new \Gungnir\HTTP\Request($_GET, $_POST, [], $_COOKIE, $_FILES, $_SERVER);
 
 $response = $dispatcher->dispatch($request);

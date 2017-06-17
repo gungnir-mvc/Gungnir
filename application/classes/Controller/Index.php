@@ -17,7 +17,7 @@ class Index extends AbstractController
      */
     public function getIndex(Request $request)
     {
-        $view = new View('Example');
+        $view = new View($this->getApplication()->getApplicationPath() . 'view/Example');
         return new Response($view);
     }
 }
